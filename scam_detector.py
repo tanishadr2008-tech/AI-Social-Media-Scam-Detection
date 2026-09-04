@@ -13,48 +13,76 @@ suspicious_words = [
     "limited offer"
 ]
 
-message = input("Enter a social media message or link: ")
 
-message_lower = message.lower()
+def analyze_message():
 
-found_words = []
+    message = input("\nEnter a social media message or link: ")
 
-# Check suspicious words
-for word in suspicious_words:
-    if word in message_lower:
-        found_words.append(word)
+    message_lower = message.lower()
 
-# Calculate message risk score
-message_score = len(found_words) * 10
+    found_words = []
 
-# Detect suspicious links
-link_score, link_risk, link_patterns = detect_suspicious_link(message)
+    # Check suspicious words
+    for word in suspicious_words:
+        if word in message_lower:
+            found_words.append(word)
 
-# Calculate total score
-total_score = message_score + link_score
+    # Calculate message risk score
+    message_score = len(found_words) * 10
 
-# Determine total risk
-if total_score == 0:
-    risk_level = "LOW"
-elif total_score <= 30:
-    risk_level = "MEDIUM"
-else:
-    risk_level = "HIGH"
+    # Detect suspicious links
+    link_score, link_risk, link_patterns = detect_suspicious_link(message)
 
-print("\n----- SCAM DETECTION RESULT -----")
+    # Calculate total score
+    total_score = message_score + link_score
 
-print("Risk Score:", total_score)
-print("Risk Level:", risk_level)
+    # Scam classification
+    if total_score == 0:
+        classification = "SAFE"
+    elif total_score <= 30:
+        classification = "SUSPICIOUS"
+    else:
+        classification = "HIGH RISK"
 
-if found_words:
-    print("\n⚠️ Suspicious Words Found:")
-    for word in found_words:
-        print("-", word)
+    print("\n----- AI SCAM DETECTION RESULT -----")
 
-if link_patterns:
-    print("\n⚠️ Suspicious Link Patterns Found:")
-    for pattern in link_patterns:
-        print("-", pattern)
+    print("Risk Score:", total_score)
+    print("Classification:", classification)
 
-if not found_words and not link_patterns:
-    print("\n✅ No suspicious patterns detected.")
+    if found_words:
+        print("\nSuspicious Words Found:")
+
+        for word in found_words:
+            print("-", word)
+
+    if link_patterns:
+        print("\nSuspicious Link Patterns Found:")
+
+        for pattern in link_patterns:
+            print("-", pattern)
+
+    if not found_words and not link_patterns:
+        print("\nNo suspicious patterns detected.")
+
+
+# Main menu
+while True:
+
+    print("\n====================================")
+    print(" AI SOCIAL MEDIA AND ONLINE SCAM DETECTION")
+    print("====================================")
+
+    print("1. Analyze Message or Link")
+    print("2. Exit")
+
+    choice = input("\nEnter your choice (1 or 2): ")
+
+    if choice == "1":
+        analyze_message()
+
+    elif choice == "2":
+        print("\nThank you for using AI Scam Detection!")
+        break
+
+    else:
+        print("\nInvalid choice! Please enter 1 or 2.")
