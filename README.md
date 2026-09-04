@@ -1,14 +1,10 @@
 # 🛡️ AI Social Media and Online Scam Detection
 
-## 📌 Project Description
-
-This project detects suspicious social media messages and links using scam pattern detection and AI/ML prediction.
-
 ## 🌐 Live Website
 
-🚀 **Try the Live Website:**
+🚀 Click below to open the live project:
 
-PASTE-YOUR-STREAMLIT-WEBSITE-LINK-HERE
+https://ai-social-media-scam-detection-97xnubyaesmpqgqhmbdyvm.streamlit.app/
 
 ## ✨ Features
 
@@ -20,21 +16,6 @@ PASTE-YOUR-STREAMLIT-WEBSITE-LINK-HERE
 - 📊 Risk Distribution Charts
 - 🥧 Pie Chart
 - 📈 Advanced Analytics
-- 🕒 Analysis Date and Time
+- 🕒 Date and Time for Analysis
 - 📁 Download Analysis History as CSV
 - 🌙 Dark Mode
-
-## 🛠️ Technologies Used
-
-- Python
-- Streamlit
-- Pandas
-- Matplotlib
-- Machine Learning
-
-## ▶️ Run the Project
-
-Install the required packages:
-
-```bash
-python -m pip install -r requirements.txt
